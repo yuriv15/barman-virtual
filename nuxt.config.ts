@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: [
         ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
+        '@nuxt/image',
     ],
     imports: {
         dirs: ['stores'],
@@ -10,4 +11,5 @@ export default defineNuxtConfig({
     alias: {
         pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
     },
+    css: ['~/assets/scss/main.scss'],
 });
