@@ -5,9 +5,9 @@
     font-family: Roboto, sans-serif;
 
     &.favoritado {
-    animation: shake 0.5s;
-    animation-iteration-count: 1;
-}
+        animation: shake 0.5s;
+        animation-iteration-count: 1;
+    }
 }
 
 @keyframes shake {
