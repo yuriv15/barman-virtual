@@ -33,7 +33,7 @@ defineEmits<{
 
 withDefaults(
     defineProps<{
-        width: number;
+        width?: number;
     }>(),
     {
         width: 50,

@@ -22,7 +22,7 @@ defineEmits<{
 withDefaults(
     defineProps<{
         isFavorito: boolean;
-        width: number;
+        width?: number;
     }>(),
     {
         width: 50,
