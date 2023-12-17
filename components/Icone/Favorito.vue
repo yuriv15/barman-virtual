@@ -1,10 +1,10 @@
 <template>
     <svg
-        @click.prevent="$emit('favoritar')"
+        @click.stop="$emit('favoritar')"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        width="50"
-        height="50"
+        :width="width"
+        :height="width"
         :fill="isFavorito ? '#F00' : '#00000000'"
         :stroke="isFavorito ? '#00000000' : '#666'"
     >
@@ -19,7 +19,13 @@ defineEmits<{
     (e: 'favoritar'): void;
 }>();
 
-defineProps<{
-    isFavorito: boolean;
-}>();
+withDefaults(
+    defineProps<{
+        isFavorito: boolean;
+        width: number;
+    }>(),
+    {
+        width: 50,
+    }
+);
 </script>
