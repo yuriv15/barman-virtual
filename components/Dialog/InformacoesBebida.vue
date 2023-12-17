@@ -1,6 +1,6 @@
 <template>
     <div v-if="open" class="dialog-container" @click.self="fecharDialog">
-        <div v-if="bebida" class="dialog">
+        <div v-if="bebida && !pending" class="dialog">
             <div class="dialog-header">
                 <span class="dialog-titulo-container">
                     <IconeFavorito
@@ -26,7 +26,7 @@
                             Categoria:
                         </span>
                         <span class="dialog-body-informacoes-item-valor">
-                            {{ bebida.strCategory }}
+                            {{ bebida.strCategory || 'Não informado' }}
                         </span>
                     </div>
                     <div class="dialog-body-informacoes-item">
@@ -34,7 +34,7 @@
                             Tipo de vidro:
                         </span>
                         <span class="dialog-body-informacoes-item-valor">
-                            {{ bebida.strGlass }}
+                            {{ bebida.strGlass || 'Não informado' }}
                         </span>
                     </div>
                     <div class="dialog-body-informacoes-item">
@@ -42,7 +42,7 @@
                             Ingredientes:
                         </span>
                         <span class="dialog-body-informacoes-item-valor">
-                            {{ ingredientesString }}
+                            {{ ingredientesString || 'Não informado' }}
                         </span>
                     </div>
                     <div class="dialog-body-modo-preparo-item">
@@ -50,7 +50,7 @@
                             Modo de preparo:
                         </span>
                         <span class="dialog-body-informacoes-item-valor">
-                            {{ bebida.strInstructions }}
+                            {{ bebida.strInstructions || 'Não informado' }}
                         </span>
                     </div>
                 </div>
@@ -61,6 +61,7 @@
                 </button>
             </div>
         </div>
+        <Loading v-else />
     </div>
 </template>
 
@@ -72,7 +73,7 @@ const open = ref(false);
 const idDrink = ref<string | null>(null);
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php';
-const { data: catalogo } = await useLazyFetch<CatalogoBebidas>(url, {
+const { pending, data: catalogo } = await useLazyFetch<CatalogoBebidas>(url, {
     query: {
         i: idDrink,
     },
