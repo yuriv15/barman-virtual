@@ -1,7 +1,7 @@
 <template>
     <div class="item-container" :class="{ favoritado: bebida.isFavorita }">
         <span class="item">
-            <IconeCoracao
+            <IconeFavorito
                 class="icone-favorito"
                 :isFavorito="bebida.isFavorita"
                 @favoritar="toggleFavorito(bebida.idDrink)"
