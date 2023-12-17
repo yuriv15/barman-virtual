@@ -1,17 +1,24 @@
 <template>
     <div class="item-container" :class="{ favoritado: bebida.isFavorita }">
-        <IconeCoracao
-            class="icone-favorito"
-            :isFavorito="bebida.isFavorita"
-            @favoritar="toggleFavorito(bebida.idDrink)"
-        />
-        <NuxtImg
-            :src="bebida.strDrinkThumb"
-            :alt="bebida.strDrink"
-            class="thumb-bebida"
-            :id="bebida.idDrink"
-        />
-        <label :for="bebida.idDrink">{{ bebida.strDrink }}</label>
+        <div class="imagem-container">
+            <IconeFavorito
+                class="icone-favorito"
+                :class="{ visivel: bebida.isFavorita }"
+                :isFavorito="bebida.isFavorita"
+                @favoritar="toggleFavorito(bebida.idDrink)"
+                :width="200"
+            />
+            <NuxtImg
+                :src="bebida.strDrinkThumb"
+                :alt="bebida.strDrink"
+                class="thumb-bebida"
+                :id="bebida.idDrink"
+            />
+        </div>
+        <div class="info-container">
+            <label :for="bebida.idDrink">{{ bebida.strDrink }}</label>
+            <span class="categoria">{{ bebida.strCategory }}</span>
+        </div>
     </div>
 </template>
 
@@ -38,40 +45,63 @@ const { toggleFavorito } = bebidasStore;
     transition: all 0.3s ease-in-out;
     text-decoration: none;
     width: 90%;
-    aspect-ratio: 1/1.5;
+    aspect-ratio: 1/1.4;
     position: relative;
     border: 1px solid #333;
     box-shadow: inset 0 0 20px 10px #333;
 
-    .icone-favorito {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        z-index: 10;
-    }
+    .imagem-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
 
-    .thumb-bebida {
-        max-width: 90%;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        transition: all 0.3s ease-in-out;
+        .icone-favorito {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            z-index: 10;
+            opacity: 0;
+
+            &.visivel,
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .thumb-bebida {
+            max-width: 90%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+        }
     }
 
     label {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         font-weight: bold;
         text-align: center;
         color: #fff;
     }
 
     &:hover {
+        cursor: pointer;
+
         .thumb-bebida {
             transform: scale(1.1);
-            border-radius: 20%;
+            border-radius: 10%;
         }
+    }
 
-        label {
-            cursor: pointer;
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+
+        .categoria {
+            font-size: 0.9rem;
+            color: #ccc;
         }
     }
 }
