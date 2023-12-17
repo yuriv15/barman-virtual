@@ -13,6 +13,7 @@
 <style scoped lang="scss">
 .logo-container {
     display: flex;
+    width: fit-content;
     align-items: center;
     color: #fff;
 
