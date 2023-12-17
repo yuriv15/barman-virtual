@@ -1,8 +1,10 @@
 <template>
     <div class="layout-container">
         <Header />
-        <slot class="body" />
-        <Footer />
+        <div class="body">
+            <slot />
+        </div>
+        <Footer class="footer" />
     </div>
 </template>
 
@@ -12,9 +14,15 @@
 .layout-container {
     display: flex;
     flex-direction: column;
+    min-height: 100dvh;
+    min-height: 100vh;
 
     .body {
-        flex: 1;
+        margin: 24px 0;
+    }
+
+    .footer {
+        margin-top: auto;
     }
 }
 </style>

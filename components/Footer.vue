@@ -8,9 +8,9 @@
 
 <style scoped lang="scss">
 .footer {
-    //background-color: #000;
     height: 50px;
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     color: #fff;
