@@ -1,6 +1,11 @@
 <template>
     <div class="header">
-        <Logo />
+        <Logo class="logo" />
+        <div class="filtros-container">
+            <FiltroCategoria />
+            <FiltroBusca class="filtro-busca" />
+            <FiltroVisualizacao />
+        </div>
     </div>
 </template>
 
@@ -11,8 +16,22 @@ import Logo from '~/components/Logo.vue';
 <style scoped lang="scss">
 .header {
     box-sizing: border-box;
-    height: 100px;
     padding: 0 8px;
     max-height: 20%;
+
+    .logo {
+        height: 100px;
+    }
+
+    .filtros-container {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .filtro-busca {
+            flex-grow: 1;
+        }
+    }
 }
 </style>
