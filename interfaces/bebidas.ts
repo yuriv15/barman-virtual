@@ -4,6 +4,7 @@ export interface Drink {
     strCategory: string;
     strDrinkThumb: string;
     isFavorita?: boolean;
+    [key: string]: string | boolean | undefined | null;
 }
 
 export default interface CatalogoBebidas {
