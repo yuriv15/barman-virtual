@@ -18,6 +18,11 @@ Tentei trazer interatividade ao favoritar itens com animações que indiquem que
 
 A barra de pesquisa permite a filtragem ao apertar enter, além de utilizar o botão e possuí um botão para desfazer a filtragem.
 
+Pontos para melhoria:
+- Inclusão de testes unitários.
+- Tratamento para quando não há ocorrências após uma filtragem de busca.
+- Melhoria na visualização do modo lista no mobile.
+
 ## Configuração
 
 Primeiro, instale as dependências:
