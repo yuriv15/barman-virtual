@@ -61,7 +61,7 @@
                 </button>
             </div>
         </div>
-        <Loading v-else />
+        <Loading ocupa-toda-altura v-else />
     </div>
 </template>
 

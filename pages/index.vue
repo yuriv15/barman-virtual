@@ -8,7 +8,7 @@
             @click="abrirDialogInformacoes(bebida.idDrink)"
         />
     </div>
-    <div v-else />
+    <Loading v-else />
     <DialogInformacoesBebida ref="dialogInformacoes" />
 </template>
 

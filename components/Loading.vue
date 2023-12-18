@@ -1,15 +1,31 @@
 <template>
-    <div class="loading">
+    <div class="loading" :style="style">
         <div class="spinner"></div>
     </div>
 </template>
+
+<script setup lang="ts">
+const props = withDefaults(
+    defineProps<{
+        ocupaTodaAltura?: boolean;
+    }>(),
+    {
+        ocupaTodaAltura: false,
+    }
+);
+
+const style = computed(() => {
+    return props.ocupaTodaAltura
+        ? 'height: 100vh;'
+        : 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);';
+});
+</script>
 
 <style scoped lang="scss">
 .loading {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 
     .spinner {
         border: 12px solid #3c3c3c00;

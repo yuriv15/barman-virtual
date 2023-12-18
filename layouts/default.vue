@@ -19,6 +19,7 @@
 
     .body {
         margin: 24px 0;
+        flex: 1;
     }
 
     .footer {
