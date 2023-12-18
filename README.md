@@ -1,10 +1,26 @@
-# Nuxt 3 Minimal Starter
+# Projeto de Bebidas
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Este é um projeto de aplicativo web para pesquisar e favoritar bebidas(drinks). O projeto é construído com Vue.js e TypeScript.
 
-## Setup
+## Decisões de Projeto
 
-Make sure to install the dependencies:
+Optei por utilizar o mínimo de bibliotecas possíveis, para demonstração de criação sem ajuda de bibliotecas. Por isso, utilizei apenas o Vue.js e o TypeScript.
+
+Decidi incluir a possibilidade de doid modos de visualização: lista e grade. A lista é a padrão e é possível ver mais itens em um menos espaço de tempo. A grade é mais visual e permite ver uma imagem de cada item.
+
+Decidi incluir a possibilidade de favoritar itens, para que o usuário possa salvar os itens que mais gostou. Os itens favoritados são salvos no localStorage do navegador, o que permite manter os itens favoritados em acessos posteriores.
+
+Além das filtragens por categoria, adicionei a possibilidade de filtrar por nome, para que o usuário possa encontrar um item específico. Também adicionei a possibilidade de filtrar apenas por favoritos e mostrar todos.
+
+Nas informações de cada item, além do modo de preparo, adicionei a possibilidade de ver os ingredientes e as medidas e o tipo de "copo" de cada drink.
+
+Tentei trazer interatividade ao favoritar itens com animações que indiquem que o item foi favoritado.
+
+A barra de pesquisa permite a filtragem ao apertar enter, além de utilizar o botão e possuí um botão para desfazer a filtragem.
+
+## Configuração
+
+Primeiro, instale as dependências:
 
 ```bash
 # npm
@@ -20,9 +36,9 @@ yarn install
 bun install
 ```
 
-## Development Server
+## Servidor de Desenvolvimento
 
-Start the development server on `http://localhost:3000`:
+Inicie o servidor de desenvolvimento em `http://localhost:3000`:
 
 ```bash
 # npm
@@ -38,9 +54,9 @@ yarn dev
 bun run dev
 ```
 
-## Production
+## Produção
 
-Build the application for production:
+Construa o aplicativo para produção:
 
 ```bash
 # npm
@@ -56,7 +72,7 @@ yarn build
 bun run build
 ```
 
-Locally preview production build:
+Tenha uma prévia do aplicativo em produção:
 
 ```bash
 # npm
@@ -72,4 +88,4 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
