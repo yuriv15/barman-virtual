@@ -2,9 +2,9 @@
     <div class="header">
         <Logo class="logo" />
         <div class="filtros-container">
-            <FiltroCategoria />
+            <FiltroCategoria class="filtro-categoria" />
             <FiltroBusca class="filtro-busca" />
-            <FiltroVisualizacao />
+            <FiltroVisualizacao class="filtro-visualizacao" />
         </div>
     </div>
 </template>
@@ -31,6 +31,38 @@ import Logo from '~/components/Logo.vue';
 
         .filtro-busca {
             flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            display: grid;
+            grid-template-areas:
+                'filtro-categoria filtro-categoria filtro-categoria filtro-visualizacao'
+                'filtro-busca filtro-busca filtro-busca filtro-busca';
+            gap: 8px;
+
+            .filtro-categoria {
+                grid-area: filtro-categoria;
+            }
+
+            .filtro-busca {
+                flex-grow: 0;
+                grid-area: filtro-busca;
+                display: flex;
+                gap: 0;
+            }
+
+            .filtro-visualizacao {
+                grid-area: filtro-visualizacao;
+                justify-self: end;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        .logo {
+            height: 80px;
         }
     }
 }

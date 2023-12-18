@@ -9,7 +9,7 @@
             <span class="item-titulo">{{ bebida.strDrink }}</span>
         </span>
 
-        <span class="item">
+        <span class="item-categoria">
             {{ bebida.strCategory }}
         </span>
     </div>
@@ -43,7 +43,8 @@ const { toggleFavorito } = bebidasStore;
         background-color: #eeeeee66;
     }
 
-    .item {
+    .item,
+    .item-categoria {
         .icone-favorito {
             width: 40px;
         }
@@ -55,6 +56,29 @@ const { toggleFavorito } = bebidasStore;
 
         .item-titulo {
             margin-left: 12px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 12px;
+
+        .item {
+            width: 100%;
+            justify-content: space-between;
+            text-align: end;
+            position: relative;
+
+            .icone-favorito {
+                position: relative;
+                bottom: -13px;
+            }
+        }
+
+        .item-categoria {
+            width: 100%;
+            justify-content: end;
         }
     }
 }

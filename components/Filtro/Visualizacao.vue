@@ -31,5 +31,9 @@ const modoLista = computed(() => rotaAtual.value === 'index');
     .iconeAtivo {
         background-color: #666;
     }
+
+    @media (max-width: 768px) {
+        width: fit-content;
+    }
 }
 </style>

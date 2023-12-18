@@ -36,4 +36,11 @@ select {
     font-size: 1.1rem;
     background-color: #2c2c2c;
 }
+
+@media (max-width: 768px) {
+    select {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
 </style>

@@ -218,11 +218,15 @@ defineExpose({
             .dialog-body-informacoes-item {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-start;
                 margin: 12px 0;
 
                 .dialog-body-informacoes-item-titulo {
                     font-weight: bold;
+                }
+
+                .dialog-body-informacoes-item-valor {
+                    text-align: end;
                 }
             }
 
@@ -258,6 +262,33 @@ defineExpose({
                 &:hover {
                     background-color: #555;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .dialog {
+            width: 95%;
+            height: 95%;
+
+            .dialog-header {
+                padding: 12px 24px;
+            }
+
+            .dialog-body {
+                padding: 12px 24px;
+            }
+
+            .dialog-body-imagem {
+                padding: 0;
+            }
+
+            .dialog-body-informacoes {
+                padding: 0;
+            }
+
+            .dialog-footer {
+                padding: 12px 24px;
             }
         }
     }
