@@ -10,7 +10,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 30px;
-    background-color: #666;
     padding: 2px;
 
     &:hover {

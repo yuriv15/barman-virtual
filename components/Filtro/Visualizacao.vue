@@ -29,7 +29,7 @@ const modoLista = computed(() => rotaAtual.value === 'index');
     }
 
     .iconeAtivo {
-        background-color: #795548aa;
+        background-color: #666;
     }
 }
 </style>

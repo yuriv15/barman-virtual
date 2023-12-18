@@ -11,7 +11,6 @@
     align-items: center;
     justify-content: space-between;
     width: 30px;
-    background-color: #666;
     padding: 8px 4px;
 
     &:hover {
