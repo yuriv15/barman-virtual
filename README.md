@@ -22,6 +22,7 @@ Pontos para melhoria:
 - Inclusão de testes unitários.
 - Tratamento para quando não há ocorrências após uma filtragem de busca.
 - Melhoria na visualização do modo lista no mobile.
+- Creio que há uma forma melhor de fazer a requisição principal dos dados do que utilizando o ciclo de vida onMounted, porém não pude melhorar essa parte.
 
 ## Configuração
 
