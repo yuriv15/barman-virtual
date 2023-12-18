@@ -13,17 +13,56 @@ export const useBebidasStore = defineStore('filtros', () => {
 
         await nextTick(async () => {
             if (!catalogoBebidas.value.drinks.length) {
-                const { pending: ordinaryPendente, data: catalogoOrdinary } =
-                    await useFetch<CatalogoBebidas>(
-                        'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink'
-                    );
+                const {
+                    pending: ordinaryPendente,
+                    data: catalogoOrdinary,
+                    error: ordinaryErro,
+                } = await useLazyFetch<CatalogoBebidas>(
+                    'https://www.thecocktaildb.com/api/json/v1/1/filter.php',
+                    {
+                        query: {
+                            c: 'Ordinary_Drink',
+                        },
+                    }
+                );
 
-                const { pending: cocktailPendente, data: catalogoCocktail } =
-                    await useFetch<CatalogoBebidas>(
-                        'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
-                    );
+                if (ordinaryErro.value) {
+                    throw createError({
+                        message: ordinaryErro.value.message,
+                        statusCode: ordinaryErro.value.statusCode,
+                        fatal: true,
+                    });
+                }
 
-                if (!(ordinaryPendente.value && cocktailPendente.value)) {
+                const {
+                    pending: cocktailPendente,
+                    data: catalogoCocktail,
+                    error: cocktailErro,
+                } = await useLazyFetch<CatalogoBebidas>(
+                    'https://www.thecocktaildb.com/api/json/v1/1/filter.php',
+                    {
+                        query: {
+                            c: 'Cocktail',
+                        },
+                    }
+                );
+
+                if (cocktailErro.value) {
+                    throw createError({
+                        message: cocktailErro.value.message,
+                        statusCode: cocktailErro.value.statusCode,
+                        fatal: true,
+                    });
+                }
+
+                if (
+                    !(
+                        ordinaryPendente.value &&
+                        cocktailPendente.value &&
+                        catalogoOrdinary.value &&
+                        catalogoCocktail.value
+                    )
+                ) {
                     if (catalogoOrdinary.value) {
                         catalogoOrdinary.value.drinks.forEach((drink) => {
                             drink.strCategory = 'Ordinary Drink';

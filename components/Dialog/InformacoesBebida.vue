@@ -73,12 +73,24 @@ const open = ref(false);
 const idDrink = ref<string | null>(null);
 
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php';
-const { pending, data: catalogo } = await useLazyFetch<CatalogoBebidas>(url, {
+const {
+    pending,
+    data: catalogo,
+    error,
+} = await useLazyFetch<CatalogoBebidas>(url, {
     query: {
         i: idDrink,
     },
     immediate: false,
 });
+
+if (error.value) {
+    throw createError({
+        message: error.value.message,
+        statusCode: error.value.statusCode,
+        fatal: true,
+    });
+}
 
 const bebida = computed<Drink | undefined>(() => {
     const resultado = catalogo.value?.drinks?.[0];
