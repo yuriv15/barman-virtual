@@ -15,6 +15,10 @@
 <script setup lang="ts">
 import type { DialogInformacoesBebida } from '#components';
 
+defineComponent({
+    prerender: false,
+});
+
 const bebidasStore = useBebidasStore();
 const { carregandoBebidas, catalogoBebidas } = storeToRefs(bebidasStore);
 const { carregarCatalogoBebidas } = useBebidasStore();
